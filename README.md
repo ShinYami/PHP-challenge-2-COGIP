@@ -3,7 +3,7 @@
 Done on ../../.... .
 
 
-**Lien direct vers la page : [Not yet]()**
+**Link to the page : [Not yet]()**
 
 ## Team's members
 
