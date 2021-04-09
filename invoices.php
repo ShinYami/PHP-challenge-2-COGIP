@@ -1,4 +1,5 @@
 <?php
+require 'connectdb.php';
 class Invoices {
 /* Propriétés */
     public $invoice_id;
@@ -23,7 +24,7 @@ class Invoices {
 /* Méthodes */
     /* ajouter une nouvelle facture */
     public function create() {
-
+// require_once 'invoiceCreate.php';
     }
 
     /* afficher une facture */ /* page des factures */

@@ -1,0 +1,3 @@
+<?php
+$pg = 'invoiceRead.php';
+?>

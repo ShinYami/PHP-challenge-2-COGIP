@@ -1,21 +1,34 @@
 <?php
-require 'connect.php';
+require 'connectbd.php';
 $cost = 12;
 $error = null;
-
+$msg='';
+$valid = true;
 session_start();
 
 try {
     
-    if(isset($_POST["button"])) {
-        $login=$_POST['login'];
-        $pass = $_POST['password'];
-        /* ici mettre la vérification des entrées sanitize et validate LOGIN */
+    if(isset($_POST['button'])) {
 
-        /* ici mettre la vérification des entrées sanitize et validate PASSWORD */
-        
-        //crypte les mots de passe enregistrés
-        $password=password_hash($_POST['password'], PASSWORD_DEFAULT, $cost);
+        // vérification (sanitize et validate) des entrées LOGIN
+        if (isset($_POST['login'])) {
+            $login = filter_var($_POST['login'], FILTER_SANITIZE_STRING);
+            //garde uniquement les lettres
+            $patternlogin = "/^[a-zA-Z -',áàâäãåçñéèêëíìîïóòôöõúùûüýÿæœÁÀÂÄÃÅÇÑÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝŸÆŒ]*$/";
+            preg_match($patternlogin, $login);
+            //fin de regex
+            if (!preg_match($patternlogin, $login)) {
+                $msg = "Mauvaise entrée";
+                $valid = false;
+                }
+            }
+
+        // vérification (sanitize et validate) des entrées PASSWORD
+        if (isset($_POST['password'])) {
+            $pass = $_POST['password'];
+            //crypte les mots de passe enregistrés
+            $passHash=password_hash($pass, PASSWORD_DEFAULT, $cost);
+            }
 
         $sql ="SELECT user_login, user_password FROM user WHERE (login=:login);";
         $query= $pdo -> prepare($sql);
@@ -24,18 +37,17 @@ try {
 
         $result = $query->fetch();
 
-        if (password_verify($pass, $result->password)) {
-            $_SESSION["login"] = $login;
-            exit(header("location:read.php"));
-        } else {
-            echo "Invalid password";
-        } 
+        if (password_verify($passHash, $result->password)) {
+            $_SESSION['login'] = $login;
+            exit(header('location:index.php')); // la page où on était avant
+            } else {
+                echo "Mot de passe invalide";
+                }
     
-    }
+        }
 
     } catch (PDOException $e) {
         $error = $e->getMessage();
         }
-
 
 ?>
