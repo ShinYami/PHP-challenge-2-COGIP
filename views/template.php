@@ -5,10 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wep App</title>
+    <link rel="stylesheet" href="<?= SCRIPTS . 'style' . DIRECTORY_SEPARATOR . 'header.css' ?>">
+    <link rel="stylesheet" href="<?= SCRIPTS . 'style' . DIRECTORY_SEPARATOR . 'login.css' ?>">
+
 </head>
 
 <body>
-
+<header class="head">
+        <nav class="navigation">
+            <a href="">Home</a>
+            <a href="">Invoices</a>
+            <a href="">Companies</a>
+            <a href="">Contacts</a>
+            <a href="">Connexion</a>
+        </nav>
+    </header>
     <?= $content ?>
 
 </body>
