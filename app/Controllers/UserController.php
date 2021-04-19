@@ -10,7 +10,7 @@ class UserController extends Controller
     public function home()
     {
 
-        return $this->view('app.home');
+        return $this->view('app.login');
     }
 
     public function contact()
