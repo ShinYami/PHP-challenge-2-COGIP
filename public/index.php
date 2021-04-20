@@ -17,6 +17,7 @@ $router->get('/toto', 'App\Controllers\UserController@contact');
 $router->get('/liste-facture', 'App\Controllers\FactureController@home');
 
 $router->get('/annuaire', 'App\Controllers\SocietiesController@annuaire');
+$router->get('/society/:id', 'App\Controllers\SocietiesController@details');
 
 
 

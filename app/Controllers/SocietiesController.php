@@ -2,26 +2,26 @@
 
 namespace App\Controllers;
 
+use App\Models\Clients;
+use App\Models\Fournisseurs;
+
 class SocietiesController extends Controller
 {
 
     public function annuaire() {
-
-        return $this->view('app.societes.annuaire');
+        $clients = new Clients();
+        $clients = $clients->all();
+        $fournisseurs = new Fournisseurs();
+        $fournisseurs = $fournisseurs->all();
+        // var_dump($societies);
+        // die;
+        return $this->view('app.societes.annuaire', compact("clients", "fournisseurs"));
     }
 
-    public function contact()
-    {
-
-        $invoice = (new Invoice())->all();
-        $clients = (new Invoice())->all();
-        return $this->view('app.bonjour', compact('invoice', 'clients'));
-    }
-
-    public function contactPost()
-    {
-
-        $invoice = (new Invoice())->all();
-        return $this->view('app.bonjour', compact('invoice'));
+    public function details($id) {
+        //obligé d'avoir un id de l'entreprise pour renvoyer les donnees
+        $society = new Clients();
+        $society = $society->find_by_id($id);
+        return $this->view('app.societes.society', compact("society"));
     }
 }
