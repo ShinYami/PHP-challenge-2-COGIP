@@ -21,6 +21,7 @@ class ContactController extends Controller
         return $this->view('app.contact.detailContact', compact('people', 'invoices'));
     }
 
+    // pour formulaire + info des company
     public function newContact()
     {
         $compagny = (new People())->allCompagnyNameAndId();

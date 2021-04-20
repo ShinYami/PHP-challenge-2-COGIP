@@ -19,7 +19,7 @@ var_dump($params['compagny'][0]);
     <label for="email">email</label>
     <input type="text" name="email" value="">
 
-    <label for="societe">Difficulté</label>
+    <label for="societe">societe</label>
     <select name="societe">
         <?php foreach ($params['compagny'] as $compagny) : ?>
             <option value="<?= $compagny['company_id'] ?>"> <?= $compagny['company_name'] ?></option>
