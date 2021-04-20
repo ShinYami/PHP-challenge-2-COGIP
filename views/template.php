@@ -7,17 +7,18 @@
     <title>Wep App</title>
     <link rel="stylesheet" href="<?= SCRIPTS . 'style' . DIRECTORY_SEPARATOR . 'header.css' ?>">
     <link rel="stylesheet" href="<?= SCRIPTS . 'style' . DIRECTORY_SEPARATOR . 'login.css' ?>">
+    <link rel="stylesheet" href="<?= SCRIPTS . 'style' . DIRECTORY_SEPARATOR . 'table.css' ?>">
 
 </head>
 
 <body>
 <header class="head">
         <nav class="navigation">
-            <a href="">Home</a>
+            <a href="./">Home</a>
             <a href="">Invoices</a>
             <a href="">Companies</a>
-            <a href="">Contacts</a>
-            <a href="">Connexion</a>
+            <a href="./listeContact">Contacts</a>
+            <a href="./">Connexion</a>
         </nav>
     </header>
     <?= $content ?>
