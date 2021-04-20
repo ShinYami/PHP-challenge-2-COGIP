@@ -18,10 +18,10 @@ class SocietiesController extends Controller
         return $this->view('app.societes.annuaire', compact("clients", "fournisseurs"));
     }
 
-    public function details($id) {
+    public function details($company_name) {
         //obligé d'avoir un id de l'entreprise pour renvoyer les donnees
         $society = new Clients();
-        $society = $society->find_by_id($id);
+        $society = $society->find_by_id($company_name);
         return $this->view('app.societes.society', compact("society"));
     }
 }
