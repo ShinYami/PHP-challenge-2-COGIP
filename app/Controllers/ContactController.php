@@ -30,8 +30,16 @@ class ContactController extends Controller
     public function newContactPost()
     {
         // pour voir ce que le formulaire m'envoie
-        var_dump($_POST);
-        die;
-        return $this->view('app.admin.newContact',);
+        // var_dump($_POST);
+        // die;
+        $result = (new People())->createPeople($_POST);
+
+        if (!$result) {
+            // pas bon
+            return header('Location: /newContact');
+        } else {
+            // réussi
+            return header('Location: /newContact');
+        }
     }
 }

@@ -71,19 +71,20 @@ class People extends Manager
     }
 
     // creer un people 
-    public function createPeople()
+    public function createPeople(array $param)
     {
-    }
-    public function createUser(array $param)
-    {
-        $sql = "INSERT INTO `tbl_client`( `NOM_PRENOM`, `ADRESSE`, `ID_VILLE`, `EMAIL`, `PASSWORD`, `OPTIN`) VALUES (:NOM_PRENOM,:ADRESSE,:ID_VILLE,:EMAIL,:PASSWORD,NOW()) ";
-        $stmt = $this->db->getPDO()->prepare($sql);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
-        $stmt->bindParam(':NOM_PRENOM', $param['name'], PDO::PARAM_STR);
-        $stmt->bindParam(':ADRESSE', $param['adress'], PDO::PARAM_STR);
-        $stmt->bindParam(':ID_VILLE', $param['locality'], PDO::PARAM_INT);
-        $stmt->bindParam(':EMAIL', $param['email'], PDO::PARAM_STR);
-        $stmt->bindParam(':PASSWORD', $param['password'], PDO::PARAM_STR);
-        return $stmt->execute();
+        $bdd = $this->dbConnect();
+
+        $requete = "INSERT INTO `people`( `people_firstname`, `people_lastname`, `people_phone`, `people_email`, `company_id`) VALUES (:NOM,:PRENOM,:PHONE,:EMAIL,:SOCIETE)";
+
+        $resultat = $bdd->prepare($requete);
+
+        $resultat->bindParam(':NOM', $param['nom'], PDO::PARAM_STR);
+        $resultat->bindParam(':PRENOM', $param['prenom'], PDO::PARAM_STR);
+        $resultat->bindParam(':PHONE', $param['phone'], PDO::PARAM_INT);
+        $resultat->bindParam(':EMAIL', $param['email'], PDO::PARAM_STR);
+        $resultat->bindParam(':SOCIETE', $param['societe'], PDO::PARAM_INT);
+        return $resultat->execute();
     }
 }
+//INSERT INTO `people`(`people_firstname`, `people_lastname`, `people_phone`, `people_email`, `company_id`) VALUES ([value-2],[value-3],[value-4],[value-5],[value-6])
