@@ -2,17 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Models\Invoice;
-use App\Models\People;
-
-class UserController extends Controller
+class SocietiesController extends Controller
 {
 
-    public function home()
-    {
-        // romain les 5 derniers people pour la home
-        $last5People = (new People())->last5People();
-        return $this->view('app.home', compact('invoice'));
+    public function annuaire() {
+
+        return $this->view('app.societes.annuaire');
     }
 
     public function contact()
@@ -28,11 +23,5 @@ class UserController extends Controller
 
         $invoice = (new Invoice())->all();
         return $this->view('app.bonjour', compact('invoice'));
-    }
-
-    public function login()
-    {
-
-        return $this->view('app.login');
     }
 }
