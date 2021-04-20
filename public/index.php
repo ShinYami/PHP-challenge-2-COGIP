@@ -22,6 +22,7 @@ $router->get('/listeContact', 'App\Controllers\ContactController@listeContact');
 $router->get('/listeContact/:id', 'App\Controllers\ContactController@detailContact');
 $router->get('/newContact', 'App\Controllers\ContactController@newContact');
 $router->post('/newContact', 'App\Controllers\ContactController@newContactPost');
+$router->get('/login', 'App\Controllers\UserController@login');
 
 try {
     $router->run();
