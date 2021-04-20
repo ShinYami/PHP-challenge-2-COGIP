@@ -15,6 +15,11 @@ $router->get('/', 'App\Controllers\UserController@home');
 $router->get('/toto', 'App\Controllers\UserController@contact');
 
 $router->get('/liste-facture', 'App\Controllers\FactureController@home');
+
+$router->get('/annuaire', 'App\Controllers\SocietiesController@annuaire');
+
+
+
 try {
     $router->run();
 } catch (Exception $e) {
