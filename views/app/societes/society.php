@@ -1,3 +1,5 @@
+<h1>Société</h1>
+
 <?php
 
 var_dump($params['companyInfos']);

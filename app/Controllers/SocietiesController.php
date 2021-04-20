@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\Connexion;
 
 class SocietiesController extends Controller {
-
+    
     public function annuaire() {
         $clients = new Connexion();
         $clients = $clients->clients();
@@ -24,9 +24,15 @@ class SocietiesController extends Controller {
         return $this->view('app.societes.society', compact("companyInfos", "contactId", "invoiceId"));
     }
 
-    public function delete_company($id) {
-        $deleteCompany = new Connexion();
-        $deleteCompany = $deleteCompany->delete_infos_company($id);
-        return $this->view('app.societes.deleteCompany', compact("deleteCompany"));
-    }
+    // public function delete_company($id) {
+    //     $deleteCompany = new Connexion();
+    //     $deleteCompany = $deleteCompany->delete_infos_company($id);
+
+    //     if (!$deleteCompany) {
+    //         return header('Location: /annuaire'); // failed;
+    //     } else {
+    //         return header('Location: /annuaire'); // ok;
+    //     }
+        // return $this->view('app.societes.deleteCompany', compact("deleteCompany"));
+    // }
 }
