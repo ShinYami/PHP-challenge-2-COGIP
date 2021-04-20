@@ -1,0 +1,17 @@
+{
+    "name": "mrsays/php-challenge-2-cogip",
+    "description": "Becode challenge",
+    "authors": [
+        {
+            "name": "RomainM27",
+            "email": "70415526+RomainM27@users.noreply.github.com"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "Router\\":"routes/",
+            "App\\": "app/"
+        }
+    },
+    "require": {}
+}
