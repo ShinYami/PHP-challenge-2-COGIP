@@ -57,4 +57,14 @@ class Connexion extends Manager {
 
         return $resultat->fetch();
     }
+
+    public function delete_infos_company($id) {
+        $bdd = $this->dbConnect();
+        $requete = "DELETE FROM company WHERE company_id = :id";
+        $resultat = $bdd->prepare($requete);
+        $resultat->bindParam(':id', $id, PDO::PARAM_INT);
+        $resultat->execute();
+
+        return $resultat->fetch();
+    }
 }

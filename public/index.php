@@ -18,6 +18,7 @@ $router->get('/liste-facture', 'App\Controllers\FactureController@home');
 
 $router->get('/annuaire', 'App\Controllers\SocietiesController@annuaire');
 $router->get('/annuaire/:id', 'App\Controllers\SocietiesController@details');
+$router->get('/annuaire/delete-company/:id', 'App\Controllers\SocietiesController@delete_company');
 
 
 
