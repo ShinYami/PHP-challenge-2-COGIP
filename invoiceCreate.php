@@ -1,3 +1,0 @@
-<?php
-$pg = 'invoiceCreate.php';
-?>
