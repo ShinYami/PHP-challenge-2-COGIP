@@ -3,14 +3,16 @@
 namespace App\Controllers;
 
 use App\Models\Invoice;
+use App\Models\People;
 
 class UserController extends Controller
 {
 
     public function home()
     {
-
-        return $this->view('app.home');
+        // romain les 5 derniers people pour la home
+        $last5People = (new People())->last5People();
+        return $this->view('app.home', compact('invoice'));
     }
 
     public function contact()
