@@ -14,11 +14,11 @@
 <body>
 <header class="head">
         <nav class="navigation">
-            <a href="./">Home</a>
+            <a href="">Home</a>
             <a href="">Invoices</a>
             <a href="">Companies</a>
             <a href="./listeContact">Contacts</a>
-            <a href="./">Connexion</a>
+            <a href="">Connexion</a>
         </nav>
     </header>
     <?= $content ?>
