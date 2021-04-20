@@ -15,9 +15,11 @@ $router->get('/', 'App\Controllers\UserController@home');
 $router->get('/toto', 'App\Controllers\UserController@contact');
 
 
+// Romain
 $router->get('/listeContact', 'App\Controllers\ContactController@listeContact');
 $router->get('/listeContact/:id', 'App\Controllers\ContactController@detailContact');
-
+$router->get('/newContact', 'App\Controllers\ContactController@newContact');
+$router->post('/newContact', 'App\Controllers\ContactController@newContactPost');
 
 try {
     $router->run();

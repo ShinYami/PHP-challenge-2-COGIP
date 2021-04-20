@@ -20,4 +20,18 @@ class ContactController extends Controller
         $invoices =  (new People())->allInvoiceFindById($id);
         return $this->view('app.contact.detailContact', compact('people', 'invoices'));
     }
+
+    public function newContact()
+    {
+        $compagny = (new People())->allCompagnyNameAndId();
+        return $this->view('app.admin.newContact', compact('compagny'));
+    }
+
+    public function newContactPost()
+    {
+        // pour voir ce que le formulaire m'envoie
+        var_dump($_POST);
+        die;
+        return $this->view('app.admin.newContact',);
+    }
 }
