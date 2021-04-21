@@ -22,13 +22,8 @@ class InvoiceController extends Controller {
         return $this->view('app.admin.newInvoice', compact('invoice'));
     }
 
-    /*public function newInvoicePost() {
+    public function newInvoicePost() {
         $invoice = (new Invoice())->invoicesNumberId();
-    }*/
-
-    public function updateInvoicePost() {
-        $result = (new Invoice())->update($_POST);
-
         if (!$result) {
             // pas bon
             return header('Location: /newInvoice');
