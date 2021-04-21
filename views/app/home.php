@@ -1,5 +1,6 @@
 <?php
 //var_dump($params['last5People'][0])
+var_dump($params['invoices'][0])
 ?>
 
 <main class="content">
