@@ -1,13 +1,14 @@
 <h1>COGIP : Listing des factures</h1>
 
-<?php var_dump($params['peoples'][0]);
+<?php
+var_dump($params['invoices'][0]);
 ?>
 
-<?php foreach ($params['peoples'] as $peoples) : ?>
+<?php foreach ($params['invoices'] as $invoices) : ?>
 
     <p>
-        <a href="/listInvoice/<?= $peoples['invoice_id']  ?>">
-            <?= $peoples['invoice_number'] ?>
+        <a href="/listInvoice/<?= $invoices['invoice_id']  ?>">
+            <?= $invoices['invoice_number'] ?>
         </a>
     </p>
 <?php endforeach; ?>
