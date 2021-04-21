@@ -7,7 +7,7 @@ use PDO;
 class Connexion extends Manager {
     public function clients() {
         $bdd = $this->dbConnect();
-        $requete = "SELECT company_name, company_tva, company_country FROM company WHERE `type_id`=1";
+        $requete = "SELECT company_id, company_name, company_tva, company_country FROM company WHERE `type_id`=1";
         $resultat = $bdd->prepare($requete);
         $resultat->execute();
         return $resultat->fetchAll();
@@ -15,7 +15,7 @@ class Connexion extends Manager {
 
     public function fournisseurs() {
         $bdd = $this->dbConnect();
-        $requete = "SELECT company_name, company_tva, company_country FROM company WHERE `type_id`=2";
+        $requete = "SELECT company_id, company_name, company_tva, company_country FROM company WHERE `type_id`=2";
         $resultat = $bdd->prepare($requete);
         $resultat->execute();
         return $resultat->fetchAll();
@@ -46,7 +46,8 @@ class Connexion extends Manager {
     public function invoice_by_id(int $id) {
         $bdd = $this->dbConnect();
         $requete = "SELECT i.invoice_number, i.invoice_date, p.people_email FROM invoice i 
-        INNER JOIN people p ON p.people_id = i.people_id
+        INNER JOIN people p 
+        ON p.people_id = i.people_id
         WHERE i.company_id = :id";
         $resultat = $bdd->prepare($requete);
         $resultat->bindParam(':id', $id, PDO::PARAM_INT);
