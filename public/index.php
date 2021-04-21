@@ -26,7 +26,6 @@ $router->post('/newContact', 'App\Controllers\ContactController@newContactPost')
 $router->get('/invoices', 'App\Controllers\InvoiceController@invoice'); // toutes les factures
 $router->get('/invoices/:id', 'App\Controllers\InvoiceController@detailInvoice'); // détail d'une facture en particulier
 $router->get('/newInvoice', 'App\Controllers\InvoiceController@newInvoice'); // nouvelle facture
-$router->post('/newInvoice', 'App\Controllers\InvoiceController@newInvoicePost'); // nouvelle facture
 $router->post('/updateInvoice', 'App\Controllers\InvoiceController@updateInvoicePost'); // facture à modifier
 
 //user
