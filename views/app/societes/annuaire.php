@@ -24,7 +24,7 @@
                 <tbody>
                     <?php foreach ($params['clients'] as $clients) : ?>
                         <tr>
-                            <td><a href="./annuaire/<?=$clients['company_id']?>"><?= $clients['company_name']?></a></td>
+                            <td><a href="./<?=$clients['company_id']?>"><?= $clients['company_name']?></a></td>
                             <td><?= $clients['company_tva'] ?></td>
                             <td><?= $clients['company_country'] ?></td>
                         </tr>

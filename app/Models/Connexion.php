@@ -23,7 +23,7 @@ class Connexion extends Manager {
 
     public function company_infos() {
         $bdd = $this->dbConnect();
-        $requete = "SELECT c.company_name, c.company_tva, t.type_name FROM company c 
+        $requete = "SELECT c.company_id, c.company_name, c.company_tva, t.type_name FROM company c 
         INNER JOIN typeofcompany t 
         ON c.type_id = t.type_id";
         $resultat = $bdd->prepare($requete);
