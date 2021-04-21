@@ -21,3 +21,4 @@ class UserController extends Controller
         return $this->view('app.login');
     }
 }
+?>

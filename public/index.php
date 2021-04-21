@@ -22,6 +22,12 @@ $router->get('/listeContact', 'App\Controllers\ContactController@listeContact');
 $router->get('/listeContact/:id', 'App\Controllers\ContactController@detailContact');
 $router->get('/newContact', 'App\Controllers\ContactController@newContact');
 $router->post('/newContact', 'App\Controllers\ContactController@newContactPost');
+/* Fred : concerne les factures (invoice) */
+$router->get('/invoices', 'App\Controllers\InvoiceController@invoice'); // toutes les factures
+$router->get('/invoices/:id', 'App\Controllers\InvoiceController@detailInvoice'); // détail d'une facture en particulier
+$router->get('/newInvoice', 'App\Controllers\InvoiceController@newInvoice'); // nouvelle facture
+$router->post('/newInvoice', 'App\Controllers\InvoiceController@newInvoicePost'); // nouvelle facture
+$router->post('/updateInvoice', 'App\Controllers\InvoiceController@updateInvoicePost'); // facture à modifier
 
 //user
 $router->get('/login', 'App\Controllers\UserController@login');

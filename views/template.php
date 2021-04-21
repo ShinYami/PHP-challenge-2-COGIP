@@ -12,10 +12,10 @@
 </head>
 
 <body>
-<header class="head">
+    <header class="head">
         <nav class="navigation">
             <a href="/">Home</a>
-            <a href="">Invoices</a>
+            <a href="/invoices">Invoices</a>
             <a href="">Companies</a>
             <a href="/listeContact">Contacts</a>
             <a href="/login">Connexion</a>
