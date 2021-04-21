@@ -1,43 +1,46 @@
 <?php
 
-$msg = ['', '', '', ''];
 $invoice_number = '';
 $invoice_date = '';
-$company_name = '';
-$people_firstlastname = '';
-
-function selectCompany()
-{
-}
-
-function selectPeople()
-{
-}
-
 
 ?>
-<h1>Nouvelles Factures</h1>
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+<h1>Ajout nouvelle facture</h1>
 
 <form method="POST" action="/newInvoice">
     <div>
         <label for="invoice_number">Numéro de facture</label>
         <input type="text" name="invoice_number" value="<?php echo $invoice_number; ?>" required>
-        <div class='error'><?php echo $msg[0]; ?></div>
+        <small class='error'><?php echo "Numéro de facture requis"; ?></small>
     </div>
     <div>
         <label for="invoice_date">Date de facture</label>
         <input type="date" name="invoice_date" value="<?php echo $invoice_date; ?>" required>
-        <div class='error'><?php echo $msg[1]; ?></div>
+        <small class='error'><?php echo "Date de facture requise"; ?></small>
     </div>
-    <div>
+    <div class="select">
         <label for="company_name">Société</label>
-        <input type="text" name="company_name" value="<?php echo $company_name; ?>" required>
-        <div class='error'><?php echo $msg[2]; ?></div>
+        <select name="company" id="select_company">
+            <?php foreach ($params['company'] as $company) : ?>
+            <option value="<?= $company['company_id'] ?>" required> <?= $company['company_name'] ?></option>
+            <?php endforeach ?>
+        </select>
+        <small class='error'><?php echo "Société requise"; ?></small>
     </div>
-    <div>
+    <div class="select">
         <label for="people_firstlastname">Personne de contact pour la facture</label>
-        <input type="text" name="people_firstlastname" value="<?php echo $people_firstlastname; ?>" required>
-        <div class='error'><?php echo $msg[3]; ?></div>
+        <select name="people_firstlastname" id="select_contact">
+            <?php foreach ($params['people'] as $people) : ?>
+            <option value="<?= $people['people_id'] ?>" required> <?= $people['people_firstname']." " ?><?= $people['people_lastname'] ?></option>
+            <?php endforeach ?>
+        </select>
+        <small class='error'><?php echo "Contact requis"; ?></small>
     </div>
     <button type="submit" name="button">Envoyer</button>
 </form>
