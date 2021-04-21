@@ -209,4 +209,32 @@ form {
     color: #f8faff;
   }
 
+.add-elem button a {
+  color: white;
+}
 
+.add-elem button a:hover {
+  color: #5264AE;
+  -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+
+.add-btn {
+  border-radius: 10px;
+      padding: 15px;
+      border: solid #5264AE 1px;
+      width: 120px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+      background-color: #5264AE;
+      color: white;
+      transition: all 0.50s ease-out;
+}
+
+.add-btn:hover {
+  background-color: #f8faff;
+  border: solid #5264AE 1px;
+  color: #5264AE;
+}

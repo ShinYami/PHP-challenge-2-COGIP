@@ -1,5 +1,5 @@
 <?php
-var_dump($params['invoices'][0]);
+//var_dump($params['invoices'][0]);
 ?>
 
 <div class="table_content">

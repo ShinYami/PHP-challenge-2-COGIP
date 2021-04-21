@@ -9,9 +9,9 @@
     </div>
 
     <div class="add-elem">
-        <button>Ajouter une facture</button>
-        <button>Ajouter un contact</button>
-        <button>Ajouter une société</button>
+        <a class="add-btn" href="/newInvoice">Ajouter une facture</a>
+        <a class="add-btn" href="/newContact">Ajouter un contact</a>
+        <a class="add-btn" href="/newCompany">Ajouter une société</a>
     </div>
 
     <div class="table_content">
