@@ -7,7 +7,7 @@ var_dump($params['invoices'][0]);
 <?php foreach ($params['invoices'] as $invoices) : ?>
 
     <p>
-        <a href="/listInvoice/<?= $invoices['invoice_id']  ?>">
+        <a href="/invoices/1">
             <?= $invoices['invoice_number'] ?>
         </a>
     </p>

@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Models;
+
 use PDO;
 
-class Invoice extends Manager {
+class Invoice extends Manager
+{
 
     /* ajouter une nouvelle facture */
-    public function create() {
+    public function create(array $param)
+    {
         $bdd = $this->dbConnect();
 
         $company_id = "SELECT company_id FROM company WHERE company_name = $company_name;";
@@ -26,7 +29,8 @@ class Invoice extends Manager {
     }
 
     /* page des factures */
-    public function readAll() {
+    public function readAll()
+    {
         $bdd = $this->dbConnect();
 
         $requete = "SELECT invoice_number, invoice_date, company_name, type_name FROM invoice, company, typeofcompany WHERE invoice.company_id=company.company_id AND company.type_id=typeofcompany.type_id ORDER BY invoice.invoice_date DESC";
@@ -35,7 +39,7 @@ class Invoice extends Manager {
         $resultat->execute();
 
         return $resultat->fetchAll();
-        }
+    }
 
     // renvoie toutes les factures number avec leur id
     public function invoicesNumberId()
@@ -51,7 +55,8 @@ class Invoice extends Manager {
     }
 
     /* afficher les 5 dernières factures */
-    public function readFiveLast() {
+    public function readFiveLast()
+    {
         $bdd = $this->dbConnect();
 
         $requete = "SELECT invoice_number, invoice_date, company_name FROM invoice, company WHERE invoice.company_id=company.company_id ORDER BY invoice.invoice_date DESC LIMIT 0,5;";
@@ -60,10 +65,11 @@ class Invoice extends Manager {
         $resultat->execute();
 
         return $resultat->fetchAll();
-        }
+    }
 
-    /* afficher une facture */ 
-    public function readOne() {
+    /* afficher une facture */
+    public function readOne(int $id)
+    {
         $bdd = $this->dbConnect();
 
         $invoice_id = $_POST['invoice_id'];
@@ -74,10 +80,11 @@ class Invoice extends Manager {
         $resultat->execute();
 
         return $resultat->fetchAll();
-        }
-    
+    }
+
     /* modifier une facture */
-    public function update() {
+    public function update()
+    {
         $bdd = $this->dbConnect();
 
         $invoice_date = $_POST['invoice_date'];
@@ -98,7 +105,8 @@ class Invoice extends Manager {
     }
 
     /* supprimer une facture */
-    public function delete() {
+    public function delete()
+    {
         $bdd = $this->dbConnect();
 
         $invoice_id = $_POST['invoice_id'];
@@ -110,6 +118,4 @@ class Invoice extends Manager {
 
         return $resultat->fetchAll();
     }
-
-
 }

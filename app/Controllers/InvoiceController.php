@@ -4,31 +4,39 @@ namespace App\Controllers;
 
 use App\Models\Invoice;
 
-class UserController extends Controller {
+class InvoiceController extends Controller
+{
 
-    public function home() {
 
-        return $this->view('app.home');
+    public function invoice()
+    {
+
+        $invoices = (new Invoice())->readAll();
+        return $this->view('app.invoice.listInvoice', compact('invoices'));
     }
 
-    public function invoice() {
+    public function detailInvoice(int $id)
+    {
 
-        $invoice = (new Invoice())->readAll();
-        return $this->view('app.bonjour', compact('invoice'));
+        $invoice = (new Invoice())->readAll($id);
+        return $this->view('app.invoice.detailInvoice', compact('invoice'));
     }
 
-    public function invoicePost() {
-
-        $invoice = (new Invoice())->readAll();
-        return $this->view('app.bonjour', compact('invoice'));
-    }
-
-    public function newInvoice() {
+    public function newInvoice()
+    {
         $invoice = (new Invoice())->invoicesNumberId();
         return $this->view('app.admin.newInvoice', compact('invoice'));
     }
 
-    public function updateInvoicePost() {
+    public function newInvoicePost()
+    {
+        var_dump($_POST);
+        die;
+        $invoice = (new Invoice())->invoicesNumberId();
+    }
+
+    public function updateInvoicePost()
+    {
         $result = (new Invoice())->update($_POST);
 
         if (!$result) {
@@ -38,7 +46,5 @@ class UserController extends Controller {
             // réussi
             return header('Location: /newInvoice');
         }
-
     }
 }
-?>
