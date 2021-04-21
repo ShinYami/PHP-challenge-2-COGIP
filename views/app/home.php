@@ -5,6 +5,13 @@
 <main class="content">
     <div class="welcome">
         <h1>Bienvenu à la COGIP</h1>
+        <h2>Bonjour</h2>
+    </div>
+
+    <div class="add-elem">
+        <button>Ajouter une facture</button>
+        <button>Ajouter un contact</button>
+        <button>Ajouter une société</button>
     </div>
 
     <div class="table_content">

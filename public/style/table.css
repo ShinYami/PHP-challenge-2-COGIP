@@ -34,3 +34,11 @@
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #5264AE;
 }
+
+.add-elem {
+    max-width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 50px auto;
+}
