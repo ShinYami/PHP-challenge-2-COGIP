@@ -157,4 +157,56 @@ form {
     color: #5264AE;
   }
 
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #5264AE;
+    background-image: none;
+  }
+  
+  select::-ms-expand {
+    display: none;
+  }
+  
+  .select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #5264AE;
+    overflow: hidden;
+    border-radius: .25em;
+    margin-bottom: 20px;
+  }
+  select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #f8faff;
+    cursor: pointer;
+  }
+  
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #5264AE;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+  
+  .select:hover::after {
+    color: #f8faff;
+  }
+
 
