@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COGIP : Companies Directory</title>
-</head>
-<body>
     <div>
         <h1>COGIP : Companies Directory</h1>
     </div>
@@ -24,7 +15,7 @@
                 <tbody>
                     <?php foreach ($params['clients'] as $clients) : ?>
                         <tr>
-                            <td><a href="./<?=$clients['company_id']?>"><?= $clients['company_name']?></a></td>
+                            <td><a href="/annuaire/<?=$clients['company_id']?>"><?= $clients['company_name']?></a></td>
                             <td><?= $clients['company_tva'] ?></td>
                             <td><?= $clients['company_country'] ?></td>
                         </tr>
@@ -46,7 +37,7 @@
                 <tbody>
                     <?php foreach ($params['fournisseurs'] as $fournisseurs) : ?>
                         <tr>
-                            <td><a href="./annuaire/<?=$fournisseurs['company_id']?>"><?= $fournisseurs['company_name']?></a></td>
+                            <td><a href="/annuaire/<?=$fournisseurs['company_id']?>"><?= $fournisseurs['company_name']?></a></td>
                             <td><?= $fournisseurs['company_tva'] ?></td>
                             <td><?= $fournisseurs['company_country'] ?></td>
                         </tr>
@@ -54,5 +45,3 @@
                 </tbody>
             </table>
     </div>
-</body>
-</html>

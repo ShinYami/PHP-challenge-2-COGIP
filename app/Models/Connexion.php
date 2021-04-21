@@ -21,12 +21,14 @@ class Connexion extends Manager {
         return $resultat->fetchAll();
     }
 
-    public function company_infos() {
+    public function company_infos(int $id) {
         $bdd = $this->dbConnect();
         $requete = "SELECT c.company_id, c.company_name, c.company_tva, t.type_name FROM company c 
         INNER JOIN typeofcompany t 
-        ON c.type_id = t.type_id";
+        ON c.type_id = t.type_id
+        WHERE c.company_id = :id";
         $resultat = $bdd->prepare($requete);
+        $resultat->bindParam(':id', $id, PDO::PARAM_INT);
         $resultat->execute();
         return $resultat->fetch();
     }
