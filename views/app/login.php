@@ -14,7 +14,7 @@
             </div>
 
             <div class="group">
-                <input type="text" required>
+                <input type="password" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Mot de passe</label>
