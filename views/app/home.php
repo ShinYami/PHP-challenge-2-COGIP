@@ -15,7 +15,7 @@
     </div>
 
     <div class="table_content">
-        <h2 class="table_title">Dernières Factures</h1>
+        <h2 class="table_title">Dernières Factures</h2>
 
             <table class="styled-table">
                 <thead>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="table_content">
-        <h2 class="table_title">Derniers Contacts</h1>
+        <h2 class="table_title">Derniers Contacts</h2>
 
             <table class="styled-table">
                 <thead>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="table_content">
-        <h2 class="table_title">Dernières Sociétés</h1>
+        <h2 class="table_title">Dernières Sociétés</h2>
 
             <table class="styled-table">
                 <thead>
