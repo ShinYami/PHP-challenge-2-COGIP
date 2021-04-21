@@ -23,6 +23,23 @@ class People extends Manager
         return $resultat->fetchAll();
     }
 
+    //last 5
+    public function last5People()
+    {
+        $bdd = $this->dbConnect();
+
+        $requete = "SELECT p.people_id, p.people_firstname, p.people_lastname, p.people_phone, p.people_email, c.company_name  FROM people p
+        INNER JOIN company c
+        ON p.company_id = c.company_id
+        ORDER BY p.people_id ASC LIMIT 5;
+        ";
+
+        $resultat = $bdd->prepare($requete);
+        $resultat->execute();
+
+        return $resultat->fetchAll();
+    }
+
     // trouve un people par son id
     public function findById(int $id)
     {
