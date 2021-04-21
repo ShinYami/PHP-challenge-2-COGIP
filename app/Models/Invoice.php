@@ -63,16 +63,33 @@ class Invoice extends Manager {
     }
 
     /* afficher une facture */
-    public function readOne(int $id) {
+    public function readOneCompany(int $id) {
         $bdd = $this->dbConnect();
 
-        $requete = "SELECT invoice_number, invoice_date company_name, company_tva, type_name, people_firstname, people_lastname, people_email, people_phone FROM invoice, company, typeofcompany, people WHERE invoice.company_id=company.company_id AND company.type_id=typeofcomapny.type_id AND invoice.people_id=people.people_id AND invoice.invoice_id=$id";
-
+        $requete = "SELECT i.invoice_number, c.company_name, c.company_tva, t.type_name FROM invoice i
+        INNER JOIN company c ON i.company_id = c.company_id
+        INNER JOIN typeofcompany t ON c.type_id = t.type_id
+        WHERE i.invoice_id=$id;";
+        
         $resultat = $bdd->prepare($requete);
         $resultat->execute();
 
         return $resultat->fetchAll();
     }
+
+        /* afficher une facture */
+        public function readOneContact(int $id) {
+            $bdd = $this->dbConnect();
+    
+            $requete = "SELECT p.people_firstname, p.people_lastname, p.people_email, p.people_phone FROM invoice i 
+            INNER JOIN people p ON i.people_id = p.people_id
+            WHERE i.invoice_id = $id;";
+            
+            $resultat = $bdd->prepare($requete);
+            $resultat->execute();
+    
+            return $resultat->fetchAll();
+        }
 
     /* modifier une facture */
     public function update(int $id) {
