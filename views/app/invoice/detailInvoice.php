@@ -1,5 +1,5 @@
-<?php var_dump($params['invoiceContact'] ?>
-<?php var_dump($params['invoiceCompany'] ?>
+<?php var_dump($params['invoiceContact']) ?>
+<?php var_dump($params['invoiceCompany']) ?>
 
 
 <h1>Facture : <?= $params['invoices']['invoice_number'] ?></h1>
