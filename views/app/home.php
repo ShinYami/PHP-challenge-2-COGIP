@@ -33,7 +33,7 @@
                             <td><?= $lastFiveInvoices['invoice_number'] ?></td>
                             <td><?= $lastFiveInvoices['invoice_date'] ?></td>
                             <td><?= $lastFiveInvoices['company_name'] ?></td>
-                            <td><a class="delete_btn" href="">Remove</a></td>
+                            <td><a class="delete_btn" href="">Supprimer</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -63,6 +63,7 @@
                             <td><?= $last5people['people_phone'] ?></td>
                             <td><?= $last5people['people_email'] ?></td>
                             <td><?= $last5people['company_name'] ?></td>
+                            <td><a class="delete_btn" href="">Supprimer</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
