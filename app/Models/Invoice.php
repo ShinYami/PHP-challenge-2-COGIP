@@ -6,7 +6,7 @@ use PDO;
 
 class Invoice extends Manager {
 
-    /* ajouter une nouvelle facture */
+    /* créer une nouvelle facture */
     public function create(array $param) {
         $bdd = $this->dbConnect();
 
@@ -27,7 +27,7 @@ class Invoice extends Manager {
     public function readAll() {
         $bdd = $this->dbConnect();
 
-        $requete = "SELECT invoice_number, invoice_date, company_name, type_name FROM invoice, company, typeofcompany WHERE invoice.company_id=company.company_id AND company.type_id=typeofcompany.type_id ORDER BY invoice.invoice_date DESC";
+        $requete = "SELECT invoice_id, invoice_number, invoice_date, company_name, type_name FROM invoice, company, typeofcompany WHERE invoice.company_id=company.company_id AND company.type_id=typeofcompany.type_id ORDER BY invoice.invoice_date DESC";
 
         $resultat = $bdd->prepare($requete);
         $resultat->execute();
@@ -35,7 +35,7 @@ class Invoice extends Manager {
         return $resultat->fetchAll();
     }
 
-    // renvoie toutes les factures number avec leur id
+    // renvoie toutes les invoice_number avec leur id
     public function invoicesNumberId() {
         $bdd = $this->dbConnect();
 
