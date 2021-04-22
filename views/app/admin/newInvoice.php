@@ -5,8 +5,6 @@ $invoice_date = '';
 
 ?>
 
-<h1>Ajout nouvelle facture</h1>
-
 <form method="POST" action="/newInvoice">
     <div>
         <label for="invoice_number">Numéro de facture</label>
