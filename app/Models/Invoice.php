@@ -12,8 +12,6 @@ class Invoice extends Manager
     {
         $bdd = $this->dbConnect();
 
-        $company_id = "SELECT company_id FROM company WHERE company_name = $company_name;";
-        $people_id = "SELECT people_id FROM people WHERE people_firstname = $people_firstname AND people_lastname = $people_lastname AND people_phone = $people_phone AND people_email = $people_email;";
         $request = "INSERT INTO invoice (invoice_number, invoice_date, company_id, people_id) VALUES (:NUMBER, :DATE, $company_id, $people_id);";
 
         $resultat = $bdd->prepare($requete);
@@ -100,7 +98,7 @@ class Invoice extends Manager
     {
         $bdd = $this->dbConnect();
 
-        $requete = "SELECT company_id, company_name FROM company";
+        $requete = "SELECT company_id, company_name FROM company;";
 
         $resultat = $bdd->prepare($requete);
         $resultat->execute();
@@ -109,11 +107,11 @@ class Invoice extends Manager
     }
 
     // récupère tous les contacts d'une société en particulier
-    public function readAllPeopleByCompany(int $id_company)
+    public function readAllPeople()
     {
         $bdd = $this->dbConnect();
 
-        $requete = "SELECT people_id,people_firstname, people_lastname FROM people p WHERE p.company_id = $id_company";
+        $requete = "SELECT people_id,people_firstname, people_lastname FROM people p;";
 
         $resultat = $bdd->prepare($requete);
         $resultat->execute();
