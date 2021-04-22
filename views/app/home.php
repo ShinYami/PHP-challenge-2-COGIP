@@ -85,7 +85,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                <?php foreach ($params['last5People'] as $last5people) : ?>
+                        <tr>
+                            <td>
+                                <?= $last5people['people_firstname'] ?> <?= $last5people['people_lastname'] ?>
+                            </td>
+                            <td><?= $last5people['people_phone'] ?></td>
+                            <td><?= $last5people['people_email'] ?></td>
+                            <td><?= $last5people['company_name'] ?></td>
+                            <td><a class="delete_btn" href="">Supprimer</a></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 

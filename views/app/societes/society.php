@@ -26,8 +26,8 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-
 </div>
+
 <!-- var_dump($params['companyInfos']);
 var_dump($params['contactId']);
 var_dump($params['invoiceId']); -->
