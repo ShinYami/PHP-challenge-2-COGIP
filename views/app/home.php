@@ -24,6 +24,7 @@
                         <th>Numéro facture</th>
                         <th>Dates</th>
                         <th>Société</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +33,7 @@
                             <td><?= $lastFiveInvoices['invoice_number'] ?></td>
                             <td><?= $lastFiveInvoices['invoice_date'] ?></td>
                             <td><?= $lastFiveInvoices['company_name'] ?></td>
+                            <td><a class="delete_btn" href="">Remove</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -49,6 +51,7 @@
                         <th>Telephone</th>
                         <th>Email</th>
                         <th>Société</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,6 +80,7 @@
                         <th>TVA</th>
                         <th>Pays</th>
                         <th>Type</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>

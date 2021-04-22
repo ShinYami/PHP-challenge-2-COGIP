@@ -31,6 +31,7 @@ h1 {
 
 h2 {
     font-size: 20px;
+    padding: 20px;
 }
 
 form {
@@ -238,3 +239,12 @@ form {
   border: solid #5264AE 1px;
   color: #5264AE;
 }
+
+.delete_btn {
+  color: #5264AE;
+}
+
+.delete_btn:hover {
+  color: rgb(255, 82, 82);
+}
+
