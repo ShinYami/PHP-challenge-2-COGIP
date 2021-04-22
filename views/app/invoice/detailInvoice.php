@@ -3,10 +3,10 @@
 <?php var_dump($params['invoiceCompany']) ?>
 
 
-<h1>Facture : <?= $params['invoiceDetail']['invoice_number'] ?></h1>
+<h1>Facture : <?= $params['invoiceDetail'][0]['invoice_number'] ?></h1>
 
 <p>Société liée à la facture</p>
-<p>Nom : <?= $params['invoiceCompany']['company_name'] ?></p>
+<p>Nom : <?= $params['invoiceCompany'][0]['company_name'] ?></p>
 <p>TVA : <?= $params['invoiceCompany']['company_tva'] ?></p>
 <p>Type de société : <?= $params['invoiceCompany']['type_name'] ?></p>
 
