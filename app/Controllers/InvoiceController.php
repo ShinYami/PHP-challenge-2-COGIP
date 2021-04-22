@@ -4,41 +4,27 @@ namespace App\Controllers;
 
 use App\Models\Invoice;
 
-class InvoiceController extends Controller
-{
+class InvoiceController extends Controller {
 
-
-    public function invoice()
-    {
-
+    public function invoice() {
         $invoices = (new Invoice())->readAll();
         return $this->view('app.invoice.listInvoice', compact('invoices'));
     }
 
-    public function detailInvoice(int $id)
-    {
-
-        $invoice = (new Invoice())->readAll($id);
-        return $this->view('app.invoice.detailInvoice', compact('invoice'));
+    public function detailInvoice(int $id) {
+        $invoiceDetail = (new Invoice())->invoicesNumberId($id);
+        $invoiceCompany = (new Invoice())->readOneCompany($id);
+        $invoiceContact = (new Invoice())->readOneContact($id);
+        return $this->view('app.invoice.detailInvoice', compact('invoiceDetail', 'invoiceCompany', 'invoiceContact'));
     }
 
-    public function newInvoice()
-    {
+    public function newInvoice() {
         $invoice = (new Invoice())->invoicesNumberId();
         return $this->view('app.admin.newInvoice', compact('invoice'));
     }
 
-    public function newInvoicePost()
-    {
-        var_dump($_POST);
-        die;
-        $invoice = (new Invoice())->invoicesNumberId();
-    }
-
-    public function updateInvoicePost()
-    {
-        $result = (new Invoice())->update($_POST);
-
+    public function newInvoicePost() {
+        $invoice = (new Invoice())->create($_POST);
         if (!$result) {
             // pas bon
             return header('Location: /newInvoice');

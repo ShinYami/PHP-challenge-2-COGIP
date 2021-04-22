@@ -12,7 +12,11 @@ class UserController extends Controller
     {
         // romain les 5 derniers people pour la home
         $last5People = (new People())->last5People();
-        return $this->view('app.home', compact('last5People'));
+        // fred : les 5 dernières factures
+        $lastFiveInvoices = (new Invoice())->readFiveLast();
+        // affiche sur la page d'accueil
+        return $this->view('app.home', compact('last5People', 'lastFiveInvoices'));
+        
     }
 
     public function login()
