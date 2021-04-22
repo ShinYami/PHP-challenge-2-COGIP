@@ -6,13 +6,14 @@ use App\Models\Invoice;
 
 class InvoiceController extends Controller
 {
-
+    /* affiche toutes les infos des factures */
     public function invoice()
     {
         $invoices = (new Invoice())->readAll();
         return $this->view('app.invoice.listInvoice', compact('invoices'));
     }
 
+    /* affiche les détails d'une facture en particulier */
     public function detailInvoice(int $id)
     {
         $invoiceDetail = (new Invoice())->invoicesNumberId($id);
@@ -21,6 +22,7 @@ class InvoiceController extends Controller
         return $this->view('app.invoice.detailInvoice', compact('invoiceDetail', 'invoiceCompany', 'invoiceContact'));
     }
 
+    /* affiche pour une nouvelle facture */
     public function newInvoice()
     {
         $invoiceAllCompany = (new Invoice())->readAllCompany();
@@ -29,6 +31,7 @@ class InvoiceController extends Controller
         return $this->view('app.admin.newInvoice', compact('invoiceAllCompany', 'invoicePeople'));
     }
 
+    /* affiche les informations pour une nouvelle facture en méthode POST */
     public function newInvoicePost()
     {
         /*// nettoyage des informations
