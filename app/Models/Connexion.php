@@ -4,8 +4,10 @@ namespace App\Models;
 
 use PDO;
 
-class Connexion extends Manager {
-    public function clients() {
+class Connexion extends Manager
+{
+    public function clients()
+    {
         $bdd = $this->dbConnect();
         $requete = "SELECT company_id, company_name, company_tva, company_country FROM company WHERE `type_id`=1";
         $resultat = $bdd->prepare($requete);
@@ -13,7 +15,8 @@ class Connexion extends Manager {
         return $resultat->fetchAll();
     }
 
-    public function fournisseurs() {
+    public function fournisseurs()
+    {
         $bdd = $this->dbConnect();
         $requete = "SELECT company_id, company_name, company_tva, company_country FROM company WHERE `type_id`=2";
         $resultat = $bdd->prepare($requete);
@@ -21,7 +24,8 @@ class Connexion extends Manager {
         return $resultat->fetchAll();
     }
 
-    public function company_infos(int $id) {
+    public function company_infos(int $id)
+    {
         $bdd = $this->dbConnect();
         $requete = "SELECT c.company_id, c.company_name, c.company_tva, t.type_name FROM company c 
         INNER JOIN typeofcompany t 
@@ -33,7 +37,8 @@ class Connexion extends Manager {
         return $resultat->fetch();
     }
 
-    public function contact_by_id(int $id) {
+    public function contact_by_id(int $id)
+    {
         $bdd = $this->dbConnect();
         $requete = "SELECT p.people_firstname, p.people_lastname, p.people_phone, p.people_email, c.company_name FROM people p 
         INNER JOIN company c 
@@ -42,10 +47,11 @@ class Connexion extends Manager {
         $resultat = $bdd->prepare($requete);
         $resultat->bindParam(':id', $id, PDO::PARAM_INT);
         $resultat->execute();
-        return $resultat->fetch();
+        return $resultat->fetchAll();
     }
 
-    public function invoice_by_id(int $id) {
+    public function invoice_by_id(int $id)
+    {
         $bdd = $this->dbConnect();
         $requete = "SELECT i.invoice_number, i.invoice_date, p.people_email FROM invoice i 
         INNER JOIN people p 
@@ -54,7 +60,7 @@ class Connexion extends Manager {
         $resultat = $bdd->prepare($requete);
         $resultat->bindParam(':id', $id, PDO::PARAM_INT);
         $resultat->execute();
-        return $resultat->fetch();
+        return $resultat->fetchAll();
     }
 
     // public function delete_infos_company($id) {

@@ -16,7 +16,7 @@
         <nav class="navigation">
             <a href="/">Home</a>
             <a href="/invoices">Invoices</a>
-            <a href="">Companies</a>
+            <a href="/annuaire">Companies</a>
             <a href="/listeContact">Contacts</a>
             <a href="/login">Connexion</a>
         </nav>
