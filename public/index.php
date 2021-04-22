@@ -31,6 +31,8 @@ $router->post('/newInvoice', 'App\Controllers\InvoiceController@newInvoicePost')
 // Laura
 $router->get('/annuaire', 'App\Controllers\SocietiesController@annuaire');
 $router->get('/annuaire/:id', 'App\Controllers\SocietiesController@details');
+$router->get('/newCompany', 'App\Controllers\SocietiesController@newCompany');
+$router->post('/newContact', 'App\Controllers\SocietiesController@newCompanyPost');
 
 
 //user

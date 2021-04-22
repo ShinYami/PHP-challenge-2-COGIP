@@ -63,6 +63,16 @@ class Connexion extends Manager
         return $resultat->fetchAll();
     }
 
+    public function five_last() 
+    {
+        $bdd = $this->dbConnect();
+        $requete = "SELECT company_name, company_tva, company_country, type_name FROM company, typeofcompany WHERE company.type_id=typeofcompany.type_id ORDER BY company.company_id DESC LIMIT 0,5";
+        $resultat = $bdd->prepare($requete);
+        $resultat->bindParam(':id', $id, PDO::PARAM_INT);
+        $resultat->execute();
+        return $resultat->fetchAll();
+    }
+
     // public function delete_infos_company($id) {
     //     $bdd = $this->dbConnect();
     //     $requete = "DELETE FROM company WHERE company_id = :id";
