@@ -4,12 +4,10 @@ namespace App\Models;
 
 use PDO;
 
-class Invoice extends Manager
-{
+class Invoice extends Manager {
 
     /* créer une nouvelle facture */
-    public function create(array $param)
-    {
+    public function create(array $param) {
         $bdd = $this->dbConnect();
 
         $request = "INSERT INTO invoice (invoice_number, invoice_date, company_id, people_id) VALUES (:NUMBER, :DATE, $company_id, $people_id);";
