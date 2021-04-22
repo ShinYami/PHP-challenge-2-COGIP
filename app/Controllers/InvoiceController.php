@@ -12,9 +12,10 @@ class InvoiceController extends Controller {
     }
 
     public function detailInvoice(int $id) {
+        $invoiceDetail = (new Invoice())->invoicesNumberId($id);
         $invoiceCompany = (new Invoice())->readOneCompany($id);
         $invoiceContact = (new Invoice())->readOneContact($id);
-        return $this->view('app.invoice.detailInvoice', compact('invoiceCompany', 'invoiceContact'));
+        return $this->view('app.invoice.detailInvoice', compact('invoiceDetail', 'invoiceCompany', 'invoiceContact'));
     }
 
     public function newInvoice() {
