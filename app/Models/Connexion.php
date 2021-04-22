@@ -42,7 +42,7 @@ class Connexion extends Manager {
         $resultat = $bdd->prepare($requete);
         $resultat->bindParam(':id', $id, PDO::PARAM_INT);
         $resultat->execute();
-        return $resultat->fetch();
+        return $resultat->fetchAll();
     }
 
     public function invoice_by_id(int $id) {
