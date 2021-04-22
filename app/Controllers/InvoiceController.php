@@ -20,11 +20,15 @@ class InvoiceController extends Controller {
 
     public function newInvoice() {
         $invoice = (new Invoice())->invoicesNumberId();
-        return $this->view('app.admin.newInvoice', compact('invoice'));
+        $invoiceAllCompany = (new Invoice())->readAllCompany();
+        $invoicePeopleByCompany = (new Invoice())->readAllPeopleByCompany($id);
+        return $this->view('app.admin.newInvoice', compact('invoice', 'invoiceAllCompany', 'invoicePeopleByCompany'));
     }
 
     public function newInvoicePost() {
         $invoice = (new Invoice())->create($_POST);
+        $company = (new Invoice())->create($_POST);
+        $people = (new Invoice())->create($_POST);
         if (!$result) {
             // pas bon
             return header('Location: /newInvoice');

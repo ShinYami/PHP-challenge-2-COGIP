@@ -88,6 +88,30 @@ class Invoice extends Manager {
             return $resultat->fetchAll();
         }
 
+        // recupère toutes les sociétés de la DB
+        public function readAllCompany() {
+            $bdd = $this->dbConnect();
+    
+            $requete = "SELECT company_id, company_name FROM company";
+            
+            $resultat = $bdd->prepare($requete);
+            $resultat->execute();
+    
+            return $resultat->fetchAll();
+        }
+
+        // récupère tous les contacts d'une société en particulier
+        public function readAllPeopleByCompany(int $id_company) {
+            $bdd = $this->dbConnect();
+    
+            $requete = "SELECT people_firstname, people_lastname FROM people p WHERE p.company_id = $id_company";
+            
+            $resultat = $bdd->prepare($requete);
+            $resultat->execute();
+    
+            return $resultat->fetchAll();
+        }
+
     /* supprimer une facture */
     public function delete(int $id) {
         $bdd = $this->dbConnect();
