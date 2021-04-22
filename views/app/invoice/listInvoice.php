@@ -1,5 +1,4 @@
 <h1>COGIP : Listing des factures</h1>
-<?php var_dump($params['invoices']) ?>
 <table class="styled-table">
     <thead>
         <tr>
