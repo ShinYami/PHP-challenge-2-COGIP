@@ -23,7 +23,7 @@ class InvoiceController extends Controller {
     }
 
     public function newInvoicePost() {
-        $invoice = (new Invoice())->invoicesNumberId();
+        $invoice = (new Invoice())->create($_POST);
         if (!$result) {
             // pas bon
             return header('Location: /newInvoice');
