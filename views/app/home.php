@@ -5,7 +5,7 @@
 
 <main class="content">
     <div class="welcome">
-        <h1>Bienvenu à la COGIP</h1>
+        <h1>Bienvenue à la COGIP</h1>
         <h2>Bonjour</h2>
     </div>
 

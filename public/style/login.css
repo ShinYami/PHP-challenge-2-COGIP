@@ -248,3 +248,6 @@ form {
   color: rgb(255, 82, 82);
 }
 
+p {
+  padding: 5px;
+}
