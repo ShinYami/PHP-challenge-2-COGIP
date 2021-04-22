@@ -1,10 +1,4 @@
-<?php
-//var_dump($params['invoices'][0]);
-?>
-
-<div class="table_content">
-<h1 class="table_title">Listes des Factures</h1>
-
+<h1>COGIP : Listing des factures</h1>
 <table class="styled-table">
     <thead>
         <tr>
@@ -15,15 +9,13 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($params['invoices'] as $invoices) : ?>
-        <tr>
-        <td><a href="/invoices/<?= $invoices['invoice_id']  ?>"> <?= $invoices['invoice_number'] ?></a></td>
-    <td><?=$invoices['invoice_date']?></td>
-    <td><?=$invoices['company_name']?></td>
-    <td><?=$invoices['type_name']?></td>
-    </tr>
-    <?php endforeach; ?>
+        <?php foreach ($params['invoices'] as $invoices) : ?>
+            <tr>
+                <td><a href="/invoices/<?= $invoices['invoice_id']  ?>"> <?= $invoices['invoice_number'] ?></a></td>
+                <td><?= $invoices['invoice_date'] ?></td>
+                <td><?= $invoices['company_name'] ?></td>
+                <td><?= $invoices['type_name'] ?></td>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
-
-</div>
