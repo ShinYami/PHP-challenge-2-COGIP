@@ -81,7 +81,7 @@
                         <th>TVA</th>
                         <th>Pays</th>
                         <th>Type</th>
-                        <th>Action</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
