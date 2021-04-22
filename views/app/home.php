@@ -63,6 +63,7 @@
                             <td><?= $last5people['people_phone'] ?></td>
                             <td><?= $last5people['people_email'] ?></td>
                             <td><?= $last5people['company_name'] ?></td>
+                            <td><a class="delete_btn" href="">Remove</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -84,7 +85,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                <?php foreach ($params['lastCompanies'] as $lastCompanies) : ?>
+                        <tr>
+                            <td><?= $lastCompanies['company_name'] ?></td>
+                            <td><?= $lastCompanies['company_tva'] ?></td>
+                            <td><?= $lastCompanies['company_country'] ?></td>
+                            <td><?= $lastCompanies['type_name'] ?></td>
+                            <td><a class="delete_btn" href="">Remove</a></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 
