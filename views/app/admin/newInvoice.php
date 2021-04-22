@@ -38,7 +38,7 @@ if(isset($_POST['button'])) {
             $valid = false;
             }
 
-    // vérification qu'il y a bien une entrée dans la people_firstlastname
+    // vérification qu'il y a bien une entrée dans le people_firstlastname
     if (isset($_POST['people_firstlastname'])) {
         $valid = true;
         } else {
