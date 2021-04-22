@@ -32,7 +32,7 @@ $router->post('/newInvoice', 'App\Controllers\InvoiceController@newInvoicePost')
 $router->get('/annuaire', 'App\Controllers\SocietiesController@annuaire');
 $router->get('/annuaire/:id', 'App\Controllers\SocietiesController@details');
 $router->get('/newCompany', 'App\Controllers\SocietiesController@newCompany');
-$router->post('/newContact', 'App\Controllers\SocietiesController@newCompanyPost');
+$router->post('/newCompany', 'App\Controllers\SocietiesController@newCompanyPost');
 
 
 //user
