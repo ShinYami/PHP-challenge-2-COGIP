@@ -36,10 +36,10 @@ class Invoice extends Manager {
     }
 
     // renvoie toutes les invoice_number avec leur id
-    public function invoicesNumberId() {
+    public function invoicesNumberId(int $id) {
         $bdd = $this->dbConnect();
 
-        $requete = "SELECT invoice_number, invoice_id FROM invoice";
+        $requete = "SELECT invoice_number, invoice_id FROM invoice WHERE invoice_id=$id";
 
         $resultat = $bdd->prepare($requete);
         $resultat->execute();
