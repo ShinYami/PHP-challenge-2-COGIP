@@ -1,6 +1,6 @@
 <?php
 //var_dump($params['last5People'][0])
-var_dump($params['invoices'][0])
+//var_dump($params['lastFiveInvoices'][0])
 ?>
 
 <main class="content">
@@ -27,7 +27,13 @@ var_dump($params['invoices'][0])
                     </tr>
                 </thead>
                 <tbody>
-                    
+                <?php foreach ($params['lastFiveInvoices'] as $lastFiveInvoices) : ?>
+                        <tr>
+                            <td><?= $lastFiveInvoices['invoice_number'] ?></td>
+                            <td><?= $lastFiveInvoices['invoice_date'] ?></td>
+                            <td><?= $lastFiveInvoices['company_name'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 
