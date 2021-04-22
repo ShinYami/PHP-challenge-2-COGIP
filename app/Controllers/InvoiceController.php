@@ -12,8 +12,9 @@ class InvoiceController extends Controller {
     }
 
     public function detailInvoice(int $id) {
-        $invoice = (new Invoice())->readOne($id);
-        return $this->view('app.invoice.detailInvoice', compact('invoice'));
+        $invoiceCompany = (new Invoice())->readOneCompany($id);
+        $invoiceContact = (new Invoice())->readOneContact($id);
+        return $this->view('app.invoice.detailInvoice', compact('invoiceCompany', 'invoiceContact'));
     }
 
     public function newInvoice() {
@@ -21,13 +22,8 @@ class InvoiceController extends Controller {
         return $this->view('app.admin.newInvoice', compact('invoice'));
     }
 
-    /*public function newInvoicePost() {
+    public function newInvoicePost() {
         $invoice = (new Invoice())->invoicesNumberId();
-    }*/
-
-    public function updateInvoicePost() {
-        $result = (new Invoice())->update($_POST);
-
         if (!$result) {
             // pas bon
             return header('Location: /newInvoice');
