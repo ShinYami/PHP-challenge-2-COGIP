@@ -1,14 +1,18 @@
+<?php
+var_dump($params['companyInfos']);
+//var_dump($params['contactId']);
+//var_dump($params['invoiceId']); ?>
 
-<div>
+<div class="table_content">
     <?php $company = $params['companyInfos']; ?>
     <h1>Company : <?= $company['company_name'] ?></h1>
-    <ul>
-        <li>TVA : <?= $company['company_tva']?></li>
-        <li>Type : <?= $company['type_name']?></li>
-    </ul>
+    
+        <p>TVA : <?= $company['company_tva']?></p>
+        <p>Type : <?= $company['type_name']?></p>
+    
 
-    <h2>Contact persons</h2>
-    <table>
+    <h2>Personne de Contact</h2>
+    <table class="styled-table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -28,12 +32,12 @@
     </table>
 
     <h2>Factures</h2>
-    <table>
+    <table class="styled-table">
         <thead>
             <tr>
-                <th>Invoice number</th>
+                <th>Numéro Facture</th>
                 <th>Date</th>
-                <th>Contact Person</th>
+                <th>Personne de Contact</th>
             </tr>
         </thead>
         <tbody>
@@ -48,7 +52,3 @@
     </table>
 
 </div>
-
-<!-- var_dump($params['companyInfos']);
-var_dump($params['contactId']);
-var_dump($params['invoiceId']); -->

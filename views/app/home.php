@@ -91,7 +91,7 @@
                             <td><?= $lastCompanies['company_tva'] ?></td>
                             <td><?= $lastCompanies['company_country'] ?></td>
                             <td><?= $lastCompanies['type_name'] ?></td>
-                            <td><a class="delete_btn" href="">Remove</a></td>
+                            <td><a class="delete_btn" href="">Supprimer</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
