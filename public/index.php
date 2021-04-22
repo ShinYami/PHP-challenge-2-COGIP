@@ -27,10 +27,11 @@ $router->post('/newContact', 'App\Controllers\ContactController@newContactPost')
 $router->get('/invoices', 'App\Controllers\InvoiceController@invoice'); // toutes les factures
 $router->get('/invoices/:id', 'App\Controllers\InvoiceController@detailInvoice'); // détail d'une facture en particulier
 $router->get('/newInvoice', 'App\Controllers\InvoiceController@newInvoice'); // nouvelle facture
-$router->post('/updateInvoice', 'App\Controllers\InvoiceController@updateInvoicePost'); // facture à modifier
+$router->post('/newInvoice', 'App\Controllers\InvoiceController@newInvoicePost'); // facture à modifier
 // Laura
 $router->get('/annuaire', 'App\Controllers\SocietiesController@annuaire');
 $router->get('/annuaire/:id', 'App\Controllers\SocietiesController@details');
+
 
 //user
 $router->get('/login', 'App\Controllers\UserController@login');
