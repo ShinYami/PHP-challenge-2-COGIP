@@ -27,6 +27,13 @@ class SocietiesController extends Controller
         return $this->view('app.societes.society', compact("companyInfos", "contactId", "invoiceId"));
     }
 
+    public function new_company($nom, $pays, $tva, $typeid)
+    {
+        $newCompany = new Connexion();
+        $newCompany = $newCompany->create_infos_company([$nom, $pays, $tva, $typeid]);
+        return $this->view('app.admin.newCompany', compact("newCompany"));
+    }
+
     // public function delete_company($id) {
     //     $deleteCompany = new Connexion();
     //     $deleteCompany = $deleteCompany->delete_infos_company($id);
