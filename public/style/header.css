@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #363636;
+    background-color: #f8faff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.head {
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation a {
+    color: black;
+    transition: all 1s ease-out;
+}
+
+.navigation a:visited {
+    color: black;
+}
+
+.navigation a:hover {
+    color: #5264AE;
+}

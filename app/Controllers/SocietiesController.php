@@ -4,9 +4,11 @@ namespace App\Controllers;
 
 use App\Models\Connexion;
 
-class SocietiesController extends Controller {
-    
-    public function annuaire() {
+class SocietiesController extends Controller
+{
+
+    public function annuaire()
+    {
         $clients = new Connexion();
         $clients = $clients->clients();
         $fournisseurs = new Connexion();
@@ -14,7 +16,8 @@ class SocietiesController extends Controller {
         return $this->view('app.societes.annuaire', compact("clients", "fournisseurs"));
     }
 
-    public function details($id) {
+    public function details($id)
+    {
         $companyInfos = new Connexion();
         $companyInfos = $companyInfos->company_infos($id);
         $contactId = new Connexion();
@@ -33,6 +36,6 @@ class SocietiesController extends Controller {
     //     } else {
     //         return header('Location: /annuaire'); // ok;
     //     }
-        // return $this->view('app.societes.deleteCompany', compact("deleteCompany"));
+    // return $this->view('app.societes.deleteCompany', compact("deleteCompany"));
     // }
 }

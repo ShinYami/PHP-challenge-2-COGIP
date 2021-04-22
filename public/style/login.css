@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #363636;
+    background-color: #f8faff;
+}
+
+.content {
+    margin-top: 100px;
+}
+
+.welcome {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+form {
+    max-width: 340px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.group 			  { 
+    position:relative; 
+    margin-bottom:45px; 
+  }
+
+  input 				{
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom:1px solid #757575;
+    background-color: #f8faff;
+  }
+  input:focus 		{ outline:none; }
+  
+  
+  label 				 {
+    color:#999; 
+    font-size:18px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  
+  /* active state */
+  input:focus ~ label, input:valid ~ label 		{
+    top:-20px;
+    font-size:14px;
+    color:#5264AE;
+  }
+  
+ 
+  .bar 	{ position:relative; display:block; width:300px; }
+  .bar:before, .bar:after 	{
+    content:'';
+    height:2px; 
+    width:0;
+    bottom:1px; 
+    position:absolute;
+    background:#5264AE; 
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  .bar:before {
+    left:50%;
+  }
+  .bar:after {
+    right:50%; 
+  }
+  
+  
+  input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width:50%;
+  }
+  
+ 
+  .highlight {
+    position:absolute;
+    height:60%; 
+    width:100px; 
+    top:25%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  
+  
+  input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+  
+ 
+  @-webkit-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+
+  .group.btn {
+    justify-content: center;
+    display: flex;
+}
+
+  button {
+      border-radius: 10px;
+      padding: 15px;
+      border: solid #5264AE 1px;
+      width: 120px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+      background-color: #5264AE;
+      color: white;
+      transition: all 0.50s ease-out;
+  }
+
+  button:hover {
+    background-color: #f8faff;
+    border: solid #5264AE 1px;
+    color: #5264AE;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #5264AE;
+    background-image: none;
+  }
+  
+  select::-ms-expand {
+    display: none;
+  }
+  
+  .select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #5264AE;
+    overflow: hidden;
+    border-radius: .25em;
+    margin-bottom: 20px;
+  }
+  select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #f8faff;
+    cursor: pointer;
+  }
+  
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #5264AE;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+  
+  .select:hover::after {
+    color: #f8faff;
+  }
+
+
