@@ -103,5 +103,17 @@ class People extends Manager
         $resultat->bindParam(':SOCIETE', $param['societe'], PDO::PARAM_INT);
         return $resultat->execute();
     }
+
+    public function deletePeople(int $id)
+    {
+        $bdd = $this->dbConnect();
+
+        $requete = "DELETE FROM `people` WHERE people_id = :id";
+
+        $resultat = $bdd->prepare($requete);
+        $resultat->bindParam(':id', $id, PDO::PARAM_INT);
+        return $resultat->execute();
+    }
 }
+
 //INSERT INTO `people`(`people_firstname`, `people_lastname`, `people_phone`, `people_email`, `company_id`) VALUES ([value-2],[value-3],[value-4],[value-5],[value-6])

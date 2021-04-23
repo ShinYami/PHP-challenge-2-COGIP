@@ -23,6 +23,7 @@ $router->get('/listeContact', 'App\Controllers\ContactController@listeContact');
 $router->get('/listeContact/:id', 'App\Controllers\ContactController@detailContact');
 $router->get('/newContact', 'App\Controllers\ContactController@newContact');
 $router->post('/newContact', 'App\Controllers\ContactController@newContactPost');
+$router->get('/deleteContact/:id', 'App\Controllers\ContactController@deleteContact');
 /* Fred : concerne les factures (invoice) */
 $router->get('/invoices', 'App\Controllers\InvoiceController@invoice'); // toutes les factures
 $router->get('/invoices/:id', 'App\Controllers\InvoiceController@detailInvoice'); // détail d'une facture en particulier

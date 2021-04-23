@@ -43,4 +43,18 @@ class ContactController extends Controller
             return header('Location: /newContact');
         }
     }
+
+    public function deleteContact(int $id)
+    {
+
+        $result = (new People())->deletePeople($id);
+
+        if (!$result) {
+            // pas bon
+            return header('Location: /');
+        } else {
+            // réussi
+            return header('Location: /');
+        }
+    }
 }
