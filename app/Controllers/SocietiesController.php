@@ -30,7 +30,7 @@ class SocietiesController extends Controller
     public function new_company()
     {
         $newCompany = new Connexion();
-        $newCompany = $newCompany->received_infos();
+        $newCompany = $newCompany->company_infos_all();
         return $this->view('app.admin.newCompany', compact("newCompany"));
     }
 

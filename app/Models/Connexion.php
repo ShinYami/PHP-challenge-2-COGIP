@@ -37,6 +37,15 @@ class Connexion extends Manager
         return $resultat->fetch();
     }
 
+    public function company_infos_all()
+    {
+        $bdd = $this->dbConnect();
+        $requete = "SELECT `type_name`, `type_id` FROM typeofcompany";
+        $resultat = $bdd->prepare($requete);
+        $resultat->execute();
+        return $resultat->fetchAll();
+    }
+
     public function contact_by_id(int $id)
     {
         $bdd = $this->dbConnect();
@@ -95,16 +104,16 @@ class Connexion extends Manager
         return $resultat->execute();
     }
 
-    public function received_infos()
-    {
-        $bdd = $this->dbConnect();
-        $requete = "SELECT c.company_name, c.company_tva, p.people_phone, t.type_name FROM company c 
-        INNER JOIN typeofcompany t 
-        ON c.type_id = t.type_id
-        INNER JOIN people p
-        ON c.company_id = p.company_id";
-        $resultat = $bdd->prepare($requete);
-        $resultat->execute();
-        return $resultat->fetchAll();
-    }
+    // public function received_infos()
+    // {
+    //     $bdd = $this->dbConnect();
+    //     $requete = "SELECT c.company_name, c.company_tva, p.people_phone, t.type_name FROM company c 
+    //     INNER JOIN typeofcompany t 
+    //     ON c.type_id = t.type_id
+    //     INNER JOIN people p
+    //     ON c.company_id = p.company_id";
+    //     $resultat = $bdd->prepare($requete);
+    //     $resultat->execute();
+    //     return $resultat->fetchAll();
+    // }
 }
