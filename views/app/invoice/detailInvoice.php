@@ -1,16 +1,17 @@
-<?php var_dump($params['invoiceDetail']) ?>
-<?php var_dump($params['invoiceContact']) ?>
-<?php var_dump($params['invoiceCompany']) ?>
+<?//php var_dump($params['invoiceDetail']) ?>
+<?//php var_dump($params['invoiceContact']) ?>
+<?//php var_dump($params['invoiceCompany']) ?>
 
+<div class="table_content">
+<h1>Facture : <?= $params['invoiceDetail'][0]['invoice_number'] ?></h1>
 
-<h1>Facture : <?= $params['invoiceDetail']['invoice_number'] ?></h1>
+<h2>Société liée à la facture</h2>
+<p>Nom : <?= $params['invoiceCompany'][0]['company_name'] ?></p>
+<p>TVA : <?= $params['invoiceCompany'][0]['company_tva'] ?></p>
+<p>Type de société : <?= $params['invoiceCompany'][0]['type_name'] ?></p>
 
-<p>Société liée à la facture</p>
-<p>Nom : <?= $params['invoiceCompany']['company_name'] ?></p>
-<p>TVA : <?= $params['invoiceCompany']['company_tva'] ?></p>
-<p>Type de société : <?= $params['invoiceCompany']['type_name'] ?></p>
-
-<p>Personne de contact</p>
-<p>Nom : <?= $params['invoiceContact']['people_firstname'] ?> <?= $params['invoiceContact']['people_lastname'] ?></p>
-<p>Email : <?= $params['invoiceContact']['people_email'] ?></p>
-<p>Phone : <?= $params['invoiceContact']['people_phone'] ?></p>
+<h2>Personne de contact</h2>
+<p>Nom : <?= $params['invoiceContact'][0]['people_firstname'] ?> <?= $params['invoiceContact'][0]['people_lastname'] ?></p>
+<p>Email : <?= $params['invoiceContact'][0]['people_email'] ?></p>
+<p>Phone : <?= $params['invoiceContact'][0]['people_phone'] ?></p>
+</div>

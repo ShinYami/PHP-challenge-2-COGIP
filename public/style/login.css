@@ -248,3 +248,10 @@ form {
   color: rgb(255, 82, 82);
 }
 
+p {
+  padding: 5px;
+}
+
+h3 {
+  padding: 20px;
+}
