@@ -17,8 +17,8 @@ $invoice_date = '';
         <small class='error'><?php echo "Date de facture requise"; ?></small>
     </div>
     <div class="select">
-        <label for="company_name">Société</label>
-        <select name="company_name" id="select_company">
+        <label for="company_id">Société</label>
+        <select name="company_id" id="select_company">
             <?php foreach ($params['invoiceAllCompany'] as $company) : ?>
                 <option value="<?= $company['company_id'] ?>"> <?= $company['company_name'] ?></option>
             <?php endforeach ?>
@@ -26,8 +26,8 @@ $invoice_date = '';
         <small class='error'><?php echo "Société requise"; ?></small>
     </div>
     <div class="select">
-        <label for="people_firstlastname">Personne de contact pour la facture</label>
-        <select name="people_firstlastname" id="select_contact">
+        <label for="people_id">Personne de contact pour la facture</label>
+        <select name="people_id" id="select_contact">
             <?php foreach ($params['invoicePeople'] as $people) : ?>
                 <option value="<?= $people['people_id'] ?>"> <?= $people['people_firstname'] ?> <?= $people['people_lastname'] ?></option>
             <?php endforeach ?>

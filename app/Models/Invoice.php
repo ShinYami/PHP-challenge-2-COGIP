@@ -4,21 +4,22 @@ namespace App\Models;
 
 use PDO;
 
-class Invoice extends Manager {
+class Invoice extends Manager
+{
 
     /* créer une nouvelle facture */
-    public function create(array $param) {
+    public function create(array $param)
+    {
         $bdd = $this->dbConnect();
 
-        $request = "INSERT INTO invoice (invoice_number, invoice_date, company_id, people_id) VALUES (:NUMBER, :DATE, $company_id, $people_id);";
-
-        $resultat = $bdd->prepare($requete);
+        $request = "INSERT INTO invoice (invoice_number, invoice_date, company_id, people_id) VALUES (:NUMBER, :DATE, :ComID, :peoID);";
+        $resultat = $bdd->prepare($request);
         $resultat->bindParam(':NUMBER', $param['invoice_number'], PDO::PARAM_STR);
-        $resultat->bindParam(':DATE', $param['invoice_date'], PDO::PARAM_DATE);
+        $resultat->bindParam(':DATE', $param['invoice_date']);
+        $resultat->bindParam(':ComID', $param['company_id']);
+        $resultat->bindParam(':peoID', $param['people_id']);
 
-        $resultat->execute();
-
-        return $resultat->fetchAll();
+        return $resultat->execute();
     }
 
     /* page des factures */

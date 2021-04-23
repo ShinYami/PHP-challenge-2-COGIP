@@ -4,15 +4,18 @@ namespace App\Controllers;
 
 use App\Models\Invoice;
 
-class InvoiceController extends Controller {
+class InvoiceController extends Controller
+{
     /* affiche toutes les infos des factures */
-    public function invoice() {
+    public function invoice()
+    {
         $invoices = (new Invoice())->readAll();
         return $this->view('app.invoice.listInvoice', compact('invoices'));
     }
 
     /* affiche les détails d'une facture en particulier */
-    public function detailInvoice(int $id) {
+    public function detailInvoice(int $id)
+    {
         $invoiceDetail = (new Invoice())->invoicesNumberId($id);
         $invoiceCompany = (new Invoice())->readOneCompany($id);
         $invoiceContact = (new Invoice())->readOneContact($id);
@@ -20,7 +23,8 @@ class InvoiceController extends Controller {
     }
 
     /* affiche pour une nouvelle facture */
-    public function newInvoice() {
+    public function newInvoice()
+    {
         $invoiceAllCompany = (new Invoice())->readAllCompany();
         // essayer d'affiner les contacts an fonction de la société choisie au-dessus
         $invoicePeople = (new Invoice())->readAllPeople();
@@ -28,7 +32,8 @@ class InvoiceController extends Controller {
     }
 
     /* affiche les informations pour une nouvelle facture en méthode POST */
-    public function newInvoicePost() {
+    public function newInvoicePost()
+    {
         /*// nettoyage des informations
         if (isset($_POST['button'])) {
             // vérification (sanitize et validate) des entrées invoice_number
@@ -77,18 +82,14 @@ class InvoiceController extends Controller {
             }
         }*/
 
-        var_dump($_POST);
-        die;
+        $result = (new Invoice())->create($_POST);
 
-        $invoicePost = (new Invoice())->create($_POST);
-        $invoiceAllCompanyPost = (new Invoice())->readAllCompany();
-        // essayer d'affiner les contacts en fonction de la société choisie au-dessus (avec AJAX)
-        $invoicePeoplePost = (new Invoice())->readAllPeople();
-        if (!$invoicePost) {
+        if (!$result) {
+            // errur
             return header('Location: /newInvoice');
         } else {
+            // bon
             return header('Location: /newInvoice');
         }
-        return $this->view('app.admin.newInvoice', compact('invoicePost', 'invoiceAllCompanyPost', 'invoicePeoplePost'));
     }
 }
