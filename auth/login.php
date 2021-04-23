@@ -1,5 +1,4 @@
 <?php
-require 'connectbd.php';
 $cost = 12;
 $error = null;
 $msg='';
