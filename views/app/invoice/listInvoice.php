@@ -1,4 +1,5 @@
-<h1>COGIP : Listing des factures</h1>
+<div class="table_content">
+<h1 class="table_title">COGIP : Listing des factures</h1>
 <table class="styled-table">
     <thead>
         <tr>
