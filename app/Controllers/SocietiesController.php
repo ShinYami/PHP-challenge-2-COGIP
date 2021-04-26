@@ -36,6 +36,41 @@ class SocietiesController extends Controller
 
     public function new_company_post()
     {
+        // if (isset($_POST['button'])) {
+        //     if (isset($_POST['company_name'])) {
+        //         $valid = true;
+        //     } else {
+        //         $valid = false;
+        //     }
+        //     if (isset($_POST['company_tva'])) {
+        //         $company_tva = filter_var($_POST['company_tva'], FILTER_SANITIZE_STRING);
+        //         $pattern_tva = "/^[0-9]*$/";
+        //         if (!preg_match($pattern_tva, $company_tva)) {
+        //             $msg = "Mauvaise entrée dans le numéro de tva";
+        //             $valid = false;
+        //         }
+        //     }
+        //     if (isset($_POST['company_country'])) {
+        //         $company_country = filter_var($_POST['company_country'], FILTER_SANITIZE_STRING);
+        //         $pattern_country = "/^[a-zA-Z]*$/";
+        //         if (!preg_match($pattern_country, $company_country)) {
+        //             $msg = "Mauvaise entrée dans le pays";
+        //             $valid = false;
+        //         }
+        //     }
+        //     if (isset($_POST['type_name'])) {
+        //         $valid = true;
+        //     } else {
+        //         $valid = false;
+        //     }
+        //     if ($valid == true) {
+        //         $newCompanyPost = new Connexion();
+        //         $newCompanyPost = $newCompanyPost->create_infos_company($_POST);
+        //     } else {
+        //         return header('Location: /newCompany');
+        //     }
+        // }
+
         $newCompanyPost = new Connexion();
         $newCompanyPost = $newCompanyPost->create_infos_company($_POST);
         if (!$newCompanyPost) {
