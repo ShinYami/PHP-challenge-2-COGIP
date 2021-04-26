@@ -47,15 +47,14 @@ class SocietiesController extends Controller
         }
     }
 
-    // public function delete_company($id) {
-    //     $deleteCompany = new Connexion();
-    //     $deleteCompany = $deleteCompany->delete_infos_company($id);
+    public function delete_company(int $id) {
+        $deleteCompany = new Connexion();
+        $deleteCompany = $deleteCompany->delete_infos_company($id);
 
-    //     if (!$deleteCompany) {
-    //         return header('Location: /annuaire'); // failed;
-    //     } else {
-    //         return header('Location: /annuaire'); // ok;
-    //     }
-    // return $this->view('app.societes.deleteCompany', compact("deleteCompany"));
-    // }
+        if (!$deleteCompany) {
+            return header('Location: /annuaire'); // failed;
+        } else {
+            return header('Location: /annuaire'); // ok;
+        }
+    }
 }

@@ -33,6 +33,7 @@ $router->get('/annuaire', 'App\Controllers\SocietiesController@annuaire');
 $router->get('/annuaire/:id', 'App\Controllers\SocietiesController@details');
 $router->get('/newCompany', 'App\Controllers\SocietiesController@new_company');
 $router->post('/newCompany', 'App\Controllers\SocietiesController@new_company_post');
+$router->get('/deleteCompany/:id', 'App\Controllers\SocietiesController@delete_company');
 
 
 //user

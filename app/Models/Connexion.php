@@ -82,14 +82,13 @@ class Connexion extends Manager
         return $resultat->fetchAll();
     }
 
-    // public function delete_infos_company($id) {
-    //     $bdd = $this->dbConnect();
-    //     $requete = "DELETE FROM company WHERE company_id = :id";
-    //     $resultat = $bdd->prepare($requete);
-    //     $resultat->bindParam(':id', $id, PDO::PARAM_INT);
-    //     $resultat->execute();
-    //     return $resultat->fetch();
-    // }
+    public function delete_infos_company(int $id) {
+        $bdd = $this->dbConnect();
+        $requete = "DELETE FROM company WHERE company_id = :id";
+        $resultat = $bdd->prepare($requete);
+        $resultat->bindParam(':id', $id, PDO::PARAM_INT);
+        return $resultat->execute();
+    }
 
     //create company
     public function create_infos_company(array $data)
@@ -103,17 +102,4 @@ class Connexion extends Manager
         $resultat->bindParam(':TYPEID', $data['typeid'], PDO::PARAM_INT);
         return $resultat->execute();
     }
-
-    // public function received_infos()
-    // {
-    //     $bdd = $this->dbConnect();
-    //     $requete = "SELECT c.company_name, c.company_tva, p.people_phone, t.type_name FROM company c 
-    //     INNER JOIN typeofcompany t 
-    //     ON c.type_id = t.type_id
-    //     INNER JOIN people p
-    //     ON c.company_id = p.company_id";
-    //     $resultat = $bdd->prepare($requete);
-    //     $resultat->execute();
-    //     return $resultat->fetchAll();
-    // }
 }
