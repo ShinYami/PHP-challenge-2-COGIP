@@ -119,15 +119,13 @@ class Invoice extends Manager
     }
 
     /* supprimer une facture */
-    public function delete(int $id)
-    {
+    public function deleteInvoice(int $id) {
         $bdd = $this->dbConnect();
 
         $requete = "DELETE FROM invoice WHERE invoice_id=$id;";
 
         $resultat = $bdd->prepare($requete);
+        $resultat->bindParam(':id', $id, PDO::PARAM_INT);
         $resultat->execute();
-
-        return $resultat->fetchAll();
     }
 }

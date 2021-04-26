@@ -92,4 +92,18 @@ class InvoiceController extends Controller
             return header('Location: /newInvoice');
         }
     }
+
+    /* Supprimer une facture */
+    public function deleteInvoice(int $id) {
+
+        $result = (new Invoice())->deleteInvoice($id);
+
+        if (!$result) {
+            // pas bon
+            return header('Location: /');
+        } else {
+            // réussi
+            return header('Location: /');
+        }
+    }
 }
