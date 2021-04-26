@@ -56,5 +56,6 @@ class SocietiesController extends Controller
         } else {
             return header('Location: /annuaire'); // ok;
         }
+    return $this->view('app.societes.deleteCompany', compact("deleteCompany"));
     }
 }
