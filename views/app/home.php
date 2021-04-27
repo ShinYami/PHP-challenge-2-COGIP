@@ -93,8 +93,18 @@
                         <td><?= $lastCompanies['type_name'] ?></td>
                         <td><a class="delete_btn" href="">Supprimer</a></td>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <?php foreach ($params['lastCompanies'] as $lastCompanies) : ?>
+                        <tr>
+                            <td><?= $lastCompanies['company_name'] ?></td>
+                            <td><?= $lastCompanies['company_tva'] ?></td>
+                            <td><?= $lastCompanies['company_country'] ?></td>
+                            <td><?= $lastCompanies['type_name'] ?></td>
+                            <td><a class="delete_btn" href="/deleteCompany/<?= $lastCompanies['company_id']?>">Supprimer</a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
 
     </div>
