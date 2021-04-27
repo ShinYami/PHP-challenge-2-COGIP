@@ -2,30 +2,30 @@
 
 namespace App\Controllers;
 
+use App\Models\People;
 use App\Models\Invoice;
+use App\Models\Connexion;
 
 class UserController extends Controller
 {
 
     public function home()
     {
-
-        return $this->view('app.home');
+        // romain : les 5 derniers people pour la home
+        $last5People = (new People())->last5People();
+        // fred : les 5 dernières factures
+        $lastFiveInvoices = (new Invoice())->readFiveLast();
+        //laura : les 5 dernières companies
+        $lastCompanies = (new Connexion())->five_last();
+        // affiche sur la page d'accueil
+        return $this->view('app.home', compact('last5People', 'lastFiveInvoices', 'lastCompanies'));
+        
     }
 
-    public function contact()
+    public function login()
     {
 
-        $invoice = (new Invoice())->all();
-        $clients = (new Invoice())->all();
-        return $this->view('app.bonjour', compact('invoice', 'clients'));
-    }
-
-    public function contactPost()
-    {
-
-        $invoice = (new Invoice())->all();
-        return $this->view('app.bonjour', compact('invoice'));
+        return $this->view('app.login');
     }
 }
 ?>

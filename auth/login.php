@@ -1,6 +1,5 @@
 <?php
-require 'connectbd.php';
-$cost = 12;
+$options = ['cost' => 12,];
 $error = null;
 $msg='';
 $valid = true;
@@ -27,7 +26,7 @@ try {
         if (isset($_POST['password'])) {
             $pass = $_POST['password'];
             //crypte les mots de passe enregistrés
-            $passHash=password_hash($pass, PASSWORD_DEFAULT, $cost);
+            $passHash=password_hash($pass, PASSWORD_DEFAULT, $options);
             }
 
         $sql ="SELECT user_login, user_password FROM user WHERE (login=:login);";

@@ -21,6 +21,7 @@ class ContactController extends Controller
         return $this->view('app.contact.detailContact', compact('people', 'invoices'));
     }
 
+    // pour formulaire + info des company
     public function newContact()
     {
         $compagny = (new People())->allCompagnyNameAndId();
@@ -40,6 +41,20 @@ class ContactController extends Controller
         } else {
             // réussi
             return header('Location: /newContact');
+        }
+    }
+
+    public function deleteContact(int $id)
+    {
+
+        $result = (new People())->deletePeople($id);
+
+        if (!$result) {
+            // pas bon
+            return header('Location: /');
+        } else {
+            // réussi
+            return header('Location: /');
         }
     }
 }

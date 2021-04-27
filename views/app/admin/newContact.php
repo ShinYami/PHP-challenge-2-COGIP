@@ -1,30 +1,57 @@
 <?php
-var_dump($params['compagny'][0]);
+//var_dump($params['compagny'][0]);
 // juste ne pas changer les names et values du select
 ?>
 
-<h1>Ajouter un nouveau contact</h1>
+<main class="content">
+    <section class="welcome">
+        <h2>Ajouter un nouveau contact</h2>
+    </section>
 
-<form action="/newContact" method="post">
+    <form action="/newContact" method="post">
 
-    <label for="nom">nom</label>
-    <input type="text" name="nom" value="">
+        <div class="group">
+            <input type="text" name="nom" value="">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="nom">Nom</label>
+        </div>
 
-    <label for="prenom">prenom</label>
-    <input type="text" name="prenom" value="">
+        <div class="group">
+            <input type="text" name="prenom" value="">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="prenom">Prénom</label>
+        </div>
 
-    <label for="phone">phone</label>
-    <input type="text" name="phone" value="">
+        <div class="group">
+            <input type="text" name="phone" value="">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="phone">Phone</label>
+        </div>
 
-    <label for="email">email</label>
-    <input type="text" name="email" value="">
+        <div class="group">
+            <input type="text" name="email" value="">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="email">Email</label>
+        </div>
 
-    <label for="societe">Difficulté</label>
-    <select name="societe">
-        <?php foreach ($params['compagny'] as $compagny) : ?>
-            <option value="<?= $compagny['company_id'] ?>"> <?= $compagny['company_name'] ?></option>
-        <?php endforeach ?>
-    </select>
+        <div class="select">
+            <select name="societe" id="slct">
+                <option selected disabled>Société</option>
+                <?php foreach ($params['compagny'] as $compagny) : ?>
+                    <option value="<?= $compagny['company_id'] ?>"> <?= $compagny['company_name'] ?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
 
-    <button type="submit" name="button">Envoyer</button>
+        <div class="group btn">
+            <button type="submit">SUBMIT</button>
+        </div>
+
+
+    </form>
+</main>
 </form>

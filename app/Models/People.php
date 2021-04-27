@@ -23,6 +23,23 @@ class People extends Manager
         return $resultat->fetchAll();
     }
 
+    //last 5
+    public function last5People()
+    {
+        $bdd = $this->dbConnect();
+
+        $requete = "SELECT p.people_id, p.people_firstname, p.people_lastname, p.people_phone, p.people_email, c.company_name  FROM people p
+        INNER JOIN company c
+        ON p.company_id = c.company_id
+        ORDER BY p.people_id ASC LIMIT 5;
+        ";
+
+        $resultat = $bdd->prepare($requete);
+        $resultat->execute();
+
+        return $resultat->fetchAll();
+    }
+
     // trouve un people par son id
     public function findById(int $id)
     {
@@ -86,5 +103,17 @@ class People extends Manager
         $resultat->bindParam(':SOCIETE', $param['societe'], PDO::PARAM_INT);
         return $resultat->execute();
     }
+
+    public function deletePeople(int $id)
+    {
+        $bdd = $this->dbConnect();
+
+        $requete = "DELETE FROM `people` WHERE people_id = :id";
+
+        $resultat = $bdd->prepare($requete);
+        $resultat->bindParam(':id', $id, PDO::PARAM_INT);
+        return $resultat->execute();
+    }
 }
+
 //INSERT INTO `people`(`people_firstname`, `people_lastname`, `people_phone`, `people_email`, `company_id`) VALUES ([value-2],[value-3],[value-4],[value-5],[value-6])
